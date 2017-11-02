@@ -12,6 +12,31 @@ body {
   margin-bottom: 10px;
 }
 
+/* navbar login button */
+.btn-bd-yellow{
+    font-weight: 500;
+    color: #ffe484;
+    border-color: #ffe484;
+}
+
+.btn-bd-yellow:active, .btn-bd-yellow:hover {
+  color: #2a2730;
+  background-color: #ffe484;
+  border-color: #ffe484;
+}
+
+.btn-primary {
+  background-color: #07acab;
+  border-color: #06a09f;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #006866;
+  border-color: #097c7b;
+}
+
+
 /*
  * Typography
  */
