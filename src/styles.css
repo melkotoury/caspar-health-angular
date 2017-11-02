@@ -8,6 +8,10 @@ body {
   padding-top: 3.5rem;
 }
 
+.margin-bottom-10{
+  margin-bottom: 10px;
+}
+
 /*
  * Typography
  */
@@ -92,4 +96,15 @@ h1 {
 .placeholder img {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+/* Paginations */
+
+.page-link {
+  color: #07acab;
+}
+
+.page-link:focus, .page-link:hover {
+  color: #ffffff;
+  background-color: #07acab;
 }
