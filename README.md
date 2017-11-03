@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
 
+## Pre Installation
+
+First Install `json-server` package from npm
+
+Move to the DB directory , where the db.json exists , and run `json-server --watch db.json`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
