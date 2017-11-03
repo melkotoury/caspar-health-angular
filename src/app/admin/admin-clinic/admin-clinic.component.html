@@ -2,25 +2,56 @@
 <h1>Clinic Listing</h1>
 <div class="card">
     <div class="card-body">
-<form class="form-inline margin-bottom-10">
+<form class="form-inline margin-bottom-10" [formGroup]="clinicForm" (ngSubmit)="onClinicsFormSubmit()">
   <div class="form-group mx-sm-3">
     <label for="clinic-name" class="sr-only">Name</label>
-    <input type="text"  class="form-control" id="clinic-name" placeholder="Clinic Name">
+    <input type="text"  class="form-control" id="clinic-name" formControlName="name" placeholder="Clinic Name">
+    
   </div>
   <div class="form-group mx-sm-3">
     <label for="clinic-img" class="sr-only">Image Url</label>
-    <input type="text" class="form-control" id="clinic-img" placeholder="Image URL">
+    <input type="text" class="form-control" id="clinic-img" formControlName="imgUrl" placeholder="Image URL">
+    
   </div>
-<div class="form-check mx-sm-3">
-  <label class="form-check-label">
-    <input class="form-check-input" type="checkbox" value=""> Featured
-  </label>
-</div>
 
 
-  <button type="submit" class="btn btn-primary"><span class="fa fa-plus"></span> Create</button>
+
+  <button class="btn btn-primary margin-bottom-10" *ngIf="!clinicIdToUpdate"><span class="fa fa-plus"></span> Create</button>
+  <button class="btn btn-primary margin-bottom-10 margin-right-10" *ngIf="clinicIdToUpdate">UPDATE</button>
+  <button class="btn btn-secondary margin-bottom-10" (click)="backToCreateClinic()" *ngIf="clinicIdToUpdate">Go Back</button>
+
 </form>
 
+  <div class="mx-sm-3">
+    <div *ngIf="clinicForm.get('name').invalid && processValidation" [ngClass]="'error'" class="alert alert-danger " role="alert">
+      Clinic Name is required
+    </div>
+    <div *ngIf="clinicForm.get('imgUrl').invalid && processValidation" [ngClass]="'error'" class="alert alert-danger " role="alert">
+      Clinic Image URL is required
+    </div>
+  </div>
+
+<div *ngIf="statusCode; else processing" class="mx-sm-3">
+  <div *ngIf="statusCode === 201" [ngClass]="'alert alert-success'">
+    Clinic added successfully.
+  </div>
+  <div *ngIf="statusCode === 409" [ngClass]="'alert alert-success'">
+    Clinic already exists.
+  </div>
+  <div *ngIf="statusCode === 200" [ngClass]="'alert alert-success'">
+    Clinic updated successfully.
+  </div>
+  <div *ngIf="statusCode === 204" [ngClass]="'alert alert-success'">
+    Clinic deleted successfully.
+  </div>
+  <div *ngIf="statusCode === 500" [ngClass]="'alert alert-danger'">
+    Internal Server Error.
+  </div>
+  </div>
+
+<ng-template #processing>
+  <img *ngIf="requestProcessing" src="assets/images/loading.gif">
+</ng-template>
         <input class="form-control mr-sm-2 margin-bottom-10" type="text" placeholder="Search" aria-label="Search">
         
         <table class="table table-bordered">
@@ -29,41 +60,20 @@
                 <th scope="col">#</th>
                 <th scope="col">Clinic Name</th>
                 <th scope="col">Clinic Logo</th>
-                <th scope="col">Featured</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>true</td>
+              <tr *ngFor="let clinic of allClinics">
+                <th scope="row">{{clinic.id}}</th>
+                <td>{{clinic.name}}</td>
+                <td><img src={{clinic.imgUrl}} class="img img-thumbnail tb-img"/> </td>
                 <td>
-                    <button type="button" class="btn btn-secondary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>                    
+                    <button type="button" class="btn btn-secondary" (click)="loadClinicToEdit(clinic.id)">Edit</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteClinic(clinic.id)">Delete</button>                    
                 </td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>true</td>
-                <td>
-                    <button type="button" class="btn btn-secondary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>                    
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>false</td>
-                <td>
-                    <button type="button" class="btn btn-secondary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>                    
-                </td>
-              </tr>
+             
               
             </tbody>
             

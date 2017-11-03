@@ -1,11 +1,15 @@
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
+import { ClinicsService } from './services/clinics.service';
 import { AuthGuardsService } from './shared/guards/auth-guards.service';
 import { PatientsModule } from './patients/patients.module';
 import { TherapistsModule } from './therapists/therapists.module';
 import { ClinicsModule } from './clinics/clinics.module';
 import { AdminModule } from './admin/admin.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -31,6 +35,8 @@ import { LoginComponent } from './shared/login/login.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'login', component: LoginComponent},
@@ -43,7 +49,9 @@ import { LoginComponent } from './shared/login/login.component';
     TherapistsModule,
     PatientsModule
   ],
-  providers: [AuthGuardsService],
+providers : [
+  AuthGuardsService, ClinicsService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
