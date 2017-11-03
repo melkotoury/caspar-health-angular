@@ -1,3 +1,8 @@
+import { AuthGuardsService } from './shared/guards/auth-guards.service';
+import { PatientsModule } from './patients/patients.module';
+import { TherapistsModule } from './therapists/therapists.module';
+import { ClinicsModule } from './clinics/clinics.module';
+import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -8,12 +13,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainContentComponent } from './main-content/main-content.component';
 import { HomeComponent } from './home/home.component';
 import { PatientsComponent } from './patients/patients.component';
-import { ClinicComponent } from './clinic/clinic.component';
+import { ClinicComponent } from './clinics/clinic.component';
 import { TherapistsComponent } from './therapists/therapists.component';
-import { AdminClinicComponent } from './admin/admin-clinic/admin-clinic.component';
-import { AdminPatientsComponent } from './admin/admin-patients/admin-patients.component';
-import { AdminTherapistsComponent } from './admin/admin-therapists/admin-therapists.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './shared/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,6 @@ import { LoginComponent } from './login/login.component';
     PatientsComponent,
     ClinicComponent,
     TherapistsComponent,
-    AdminClinicComponent,
-    AdminPatientsComponent,
-    AdminTherapistsComponent,
     LoginComponent
   ],
   imports: [
@@ -38,12 +37,13 @@ import { LoginComponent } from './login/login.component';
       {path: 'patients', component: PatientsComponent},
       {path: 'therapists', component: TherapistsComponent},
       {path: 'clinics', component: ClinicComponent},
-      {path: 'admin/patients', component: AdminPatientsComponent},
-      {path: 'admin/therapists', component: AdminTherapistsComponent},
-      {path: 'admin/clinics', component: AdminClinicComponent},
-    ])
+    ]),
+    AdminModule,
+    ClinicsModule,
+    TherapistsModule,
+    PatientsModule
   ],
-  providers: [],
+  providers: [AuthGuardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
