@@ -1,3 +1,3 @@
-export class Patients {
+export class Clinics {
     constructor(public id: string, public name: string, public imgUrl: string, public featured: boolean) {}
 }
