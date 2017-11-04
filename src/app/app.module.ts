@@ -45,9 +45,6 @@ import { LoginComponent } from './shared/login/login.component';
       {path: 'clinics', component: ClinicComponent},
     ]),
     AdminModule,
-    ClinicsModule,
-    TherapistsModule,
-    PatientsModule
   ],
 providers : [
   AuthGuardsService, ClinicsService

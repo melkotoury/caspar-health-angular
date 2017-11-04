@@ -18,42 +18,36 @@
   ],
   "therapists": [
     {
-      "id": "th1",
+      "id": 1,
       "name": "Dr. John Doe",
-      "imgUrl": "http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg",
-      "featured": true
+      "imgUrl": "http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg"
     },
     {
-      "id": "th2",
+      "id": 2,
       "name": "Dr. Jane Doe",
-      "imgUrl": "http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B850600000578-3605456-image-m-32_1464040491071.jpg",
-      "featured": true
+      "imgUrl": "http://i.dailymail.co.uk/i/pix/2016/05/23/22/348B850600000578-3605456-image-m-32_1464040491071.jpg"
     },
     {
-      "id": "th3",
+      "id": 3,
       "name": "Dr. Elton Doe",
-      "imgUrl": "https://www.bme.cornell.edu/engineering/customcf/iws_ai_faculty_display/ai_images/mjp31-profile.jpg",
-      "featured": false
+      "imgUrl": "https://www.bme.cornell.edu/engineering/customcf/iws_ai_faculty_display/ai_images/mjp31-profile.jpg"
     }
   ],
   "patients": [
     {
-      "id": "p1",
+      "id": 1,
       "name": "John Doe",
-      "imgUrl": "https://www.leonardmillermd.com/wp-content/uploads/2016/09/September.jpg",
-      "featured": true
+      "imgUrl": "https://www.leonardmillermd.com/wp-content/uploads/2016/09/September.jpg"
     },
     {
-      "id": "p2",
+      "id": 2,
       "name": "Jane Doe",
-      "imgUrl": "https://static.pexels.com/photos/324658/pexels-photo-324658.jpeg",
-      "featured": true
+      "imgUrl": "https://static.pexels.com/photos/324658/pexels-photo-324658.jpeg"
     },
     {
-      "id": "p3",
+      "id": 3,
       "name": "Elton Doe",
-      "imgUrl": "https://expertbeacon.com/sites/default/files/advice_for_men_on_selecting_your_online_dating_profile_photo.jpg",
-      "featured": false
+      "imgUrl": "https://expertbeacon.com/sites/default/files/advice_for_men_on_selecting_your_online_dating_profile_photo.jpg"
     }
   ],
   "follow": [
