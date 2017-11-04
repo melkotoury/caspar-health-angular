@@ -5,12 +5,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import { ClinicsService } from './services/clinics.service';
 import { AuthGuardsService } from './shared/guards/auth-guards.service';
-import { PatientsModule } from './patients/patients.module';
-import { TherapistsModule } from './therapists/therapists.module';
-import { ClinicsModule } from './clinics/clinics.module';
 import { AdminModule } from './admin/admin.module';
-
-
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
