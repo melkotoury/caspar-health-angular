@@ -1,3 +1,4 @@
+import { TherapistsService } from './../services/therapists.service';
 import { ClinicsService } from './../services/clinics.service';
 import { AdminTherapistsComponent } from './admin-therapists/admin-therapists.component';
 import { AdminPatientsComponent } from './admin-patients/admin-patients.component';
@@ -27,7 +28,10 @@ import { AdminRoutingModule } from './admin-routing.module';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ClinicsService],
+  providers: [
+    ClinicsService,
+    TherapistsService
+  ],
   bootstrap: [AdminComponent]
 })
 export class AdminModule { }

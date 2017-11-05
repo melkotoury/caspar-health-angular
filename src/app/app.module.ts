@@ -1,3 +1,4 @@
+import { TherapistsService } from './services/therapists.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
@@ -42,7 +43,7 @@ import { LoginComponent } from './shared/login/login.component';
     AdminModule,
   ],
 providers : [
-  AuthGuardsService, ClinicsService
+  AuthGuardsService, ClinicsService , TherapistsService
 ],
   bootstrap: [AppComponent]
 })

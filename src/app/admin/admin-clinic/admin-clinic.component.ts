@@ -4,7 +4,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ClinicsService} from '../../services/clinics.service';
 import {Clinics} from '../../model/clinics';
 
-@Component({selector: 'app-admin-clinic', templateUrl: './admin-clinic.component.html', styleUrls: ['./admin-clinic.component.css']})
+@Component({
+  selector: 'app-admin-clinic',
+  templateUrl: './admin-clinic.component.html',
+  styleUrls: ['./admin-clinic.component.css']
+})
 export class AdminClinicComponent implements OnInit {
   // Component properties
   allClinics: Clinics[];
