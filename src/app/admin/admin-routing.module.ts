@@ -10,12 +10,9 @@ import {Routes, RouterModule} from '@angular/router';
 
 const adminRoutes: Routes = [
   {
-    path: '',
-    component: AdminComponent,
-    canActivate: [AuthGuardsService],
-    children: [
-      {
         path: 'admin',
+        component : AdminComponent,
+        canActivate : [AuthGuardsService],
         canActivateChild: [AuthGuardsService],
         children: [
           {
@@ -34,8 +31,6 @@ const adminRoutes: Routes = [
 
         ]
       }
-    ]
-  }
 ];
 
 @NgModule({
