@@ -31,6 +31,11 @@
       "id": 3,
       "name": "Dr. Elton Doe",
       "imgUrl": "https://www.bme.cornell.edu/engineering/customcf/iws_ai_faculty_display/ai_images/mjp31-profile.jpg"
+    },
+    {
+      "name": "dummy",
+      "imgUrl": "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png",
+      "id": 4
     }
   ],
   "patients": [
