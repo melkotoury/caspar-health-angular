@@ -2,7 +2,7 @@
     <h1>Patient Listing!!</h1>
     <section class="row text-center placeholders">
       <div class="col-6 col-sm-3 placeholder"  *ngFor="let patient of allPatients">
-        <img src= {{patient.imgUrl}} width="200" height="200" class="img-fluid rounded-circle"
+        <img src= {{patient.imgUrl}} width="200" height="200" class="img rounded-circle"
           alt="Generic placeholder thumbnail">
         <h4>{{patient.name}}</h4>
         <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
