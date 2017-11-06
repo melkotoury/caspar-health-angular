@@ -53,6 +53,11 @@
       "id": 3,
       "name": "Elton Doe",
       "imgUrl": "https://expertbeacon.com/sites/default/files/advice_for_men_on_selecting_your_online_dating_profile_photo.jpg"
+    },
+    {
+      "name": "Dummy",
+      "imgUrl": "https://cdn.pixabay.com/photo/2016/03/28/12/35/cat-1285634_960_720.png",
+      "id": 4
     }
   ],
   "follow": [

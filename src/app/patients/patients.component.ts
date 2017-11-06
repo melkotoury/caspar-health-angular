@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PatientsService} from '../services/patients.service';
+import {Patients} from '../model/patients';
 
 @Component({
   selector: 'app-patients',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patients.component.css']
 })
 export class PatientsComponent implements OnInit {
+allPatients: Patients[];
+statusCode: number;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+// Create constructor to get service instance
+constructor(private patientsService : PatientsService) {}
+// Create ngOnInit() and and load Patients
+ngOnInit(): void {
+  this.getAllPatients();
+}
+// Fetch all Patients
+getAllPatients() {
+  this
+    .patientsService
+    .getAllPatients()
+    .subscribe(data => this.allPatients = data, errorCode => this.statusCode = errorCode);
+}
 
 }
