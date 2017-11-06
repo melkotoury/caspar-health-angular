@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           // the default
           const redirect = this.authService.redirectUrl
             ? this.authService.redirectUrl
-            : '/admin';
+            : '/admin/dashboard';
 
           // Set our navigation extras object that passes on our global query params and
           // fragment
