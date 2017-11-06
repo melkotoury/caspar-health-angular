@@ -3,7 +3,7 @@
   <div class="col-sm-4">
     <div class="card clinic">
       <div class="card-body" >
-        <h4 class="card-title">{{getCountClinics() || '0' }}</h4>
+        <h4 class="card-title">{{allClinics?.length || '0' }}</h4>
         <p class="card-text">Clinics.</p>
         <a  routerLink="/admin/clinics" class="btn btn-primary float-right">Go </a>
       </div>
@@ -12,7 +12,7 @@
   <div class="col-sm-4">
     <div class="card therapist">
       <div class="card-body" >
-        <h4 class="card-title">{{getCountTherapists() || '0' }}</h4>
+        <h4 class="card-title">{{allTherapists?.length || '0' }}</h4>
         <p class="card-text">Therapists.</p>
         <a  routerLink="/admin/therapists" class="btn btn-primary float-right">Go </a>
       </div>
@@ -21,7 +21,7 @@
     <div class="col-sm-4">
       <div class="card patient">
         <div class="card-body" >
-          <h4 class="card-title">{{getCountPatients() || '0'}}</h4>
+          <h4 class="card-title">{{allPatients?.length || '0'}}</h4>
           <p class="card-text">Patients.</p>
           <a  routerLink="/admin/patients" class="btn btn-primary float-right">Go</a>
         </div>

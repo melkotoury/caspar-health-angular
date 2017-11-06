@@ -51,20 +51,7 @@ getAllPatients() {
     .getAllPatients()
     .subscribe(data => this.allPatients = data, errorCode => this.statusCode = errorCode);
 }
-// Get Count of Clinics
-getCountClinics() {
-  return this.allClinics.length;
-}
 
-// Get Count of Therapists
-getCountTherapists() {
-  return this.allTherapists.length;
-}
-
-// Get Count of Patients
-getCountPatients() {
-  return this.allPatients.length;
-}
 
 
 }
