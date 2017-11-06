@@ -5,7 +5,7 @@
       <form class="form-inline margin-bottom-10" [formGroup]="therapistForm" (ngSubmit)="onTherapistsFormSubmit()">
         <div class="form-group mx-sm-3">
           <label for="therapist-name" class="sr-only">Name</label>
-          <input type="text" class="form-control" id="therapist-name" formControlName="name" placeholder="Clinic Name">
+          <input type="text" class="form-control" id="therapist-name" formControlName="name" placeholder="Therapist Name">
 
         </div>
         <div class="form-group mx-sm-3">
@@ -25,25 +25,25 @@
 
       <div class="mx-sm-3">
         <div *ngIf="therapistForm.get('name').invalid && processValidation" [ngClass]="'error'" class="alert alert-danger " role="alert">
-          Clinic Name is required
+          Therapist Name is required
         </div>
         <div *ngIf="therapistForm.get('imgUrl').invalid && processValidation" [ngClass]="'error'" class="alert alert-danger " role="alert">
-          Clinic Image URL is required
+          Therapist Image URL is required
         </div>
       </div>
 
       <div *ngIf="statusCode; else processing" class="mx-sm-3">
         <div *ngIf="statusCode === 201" [ngClass]="'alert alert-success'">
-          Clinic added successfully.
+          Therapist added successfully.
         </div>
         <div *ngIf="statusCode === 409" [ngClass]="'alert alert-success'">
-          Clinic already exists.
+          Therapist already exists.
         </div>
         <div *ngIf="statusCode === 200" [ngClass]="'alert alert-success'">
-          Clinic updated successfully.
+          Therapist updated successfully.
         </div>
         <div *ngIf="statusCode === 204" [ngClass]="'alert alert-success'">
-          Clinic deleted successfully.
+          Therapist deleted successfully.
         </div>
         <div *ngIf="statusCode === 500" [ngClass]="'alert alert-danger'">
           Internal Server Error.

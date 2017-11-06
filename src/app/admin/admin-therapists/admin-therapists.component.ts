@@ -44,13 +44,13 @@ export class AdminTherapistsComponent implements OnInit {
     this.preProcessConfigurations();
     const therapist = this.therapistForm.value;
     if (this.therapistIdToUpdate === null) {
-      // Generate clinic id then create therapist
+      // Generate therapist id then create therapist
       this
         .therapistsService
         .getAllTherapists()
         .subscribe(therapists => {
 
-          // Generate clinic id
+          // Generate therapist id
           const maxIndex = therapists.length - 1;
           const therapistWithMaxIndex = therapists[maxIndex];
           const therapistId = therapistWithMaxIndex.id + 1;

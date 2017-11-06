@@ -1,3 +1,3 @@
 export class Therapists {
-    constructor(public id: string, public name: string, public imgUrl: string) {}
+    constructor(public id: number, public name: string, public imgUrl: string) {}
 }

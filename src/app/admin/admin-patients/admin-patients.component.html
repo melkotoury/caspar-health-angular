@@ -1,26 +1,58 @@
 <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-  <h1>Patients Listing</h1>
+  <h1>Therapist Listing</h1>
   <div class="card">
     <div class="card-body">
-      <form class="form-inline margin-bottom-10">
+      <form class="form-inline margin-bottom-10" [formGroup]="patientForm" (ngSubmit)="onPatientsFormSubmit()">
         <div class="form-group mx-sm-3">
           <label for="patient-name" class="sr-only">Name</label>
-          <input type="text" class="form-control" id="patient-name" placeholder="Patients Name">
+          <input type="text" class="form-control" id="patient-name" formControlName="name" placeholder="Patient Name">
+
         </div>
         <div class="form-group mx-sm-3">
           <label for="patient-img" class="sr-only">Image Url</label>
-          <input type="text" class="form-control" id="patient-img" placeholder="Image URL">
-        </div>
-        <div class="form-check mx-sm-3">
-          <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" value=""> Featured
-          </label>
+          <input type="text" class="form-control" id="patient-img" formControlName="imgUrl" placeholder="Image URL">
+
         </div>
 
 
-        <button type="submit" class="btn btn-primary">
+
+        <button class="btn btn-primary margin-bottom-10" *ngIf="!patientIdToUpdate">
           <span class="fa fa-plus"></span> Create</button>
+        <button class="btn btn-primary margin-bottom-10 margin-right-10" *ngIf="patientIdToUpdate">UPDATE</button>
+        <button class="btn btn-secondary margin-bottom-10" (click)="backToCreatePatient()" *ngIf="patientIdToUpdate">Go Back</button>
+
       </form>
+
+      <div class="mx-sm-3">
+        <div *ngIf="patientForm.get('name').invalid && processValidation" [ngClass]="'error'" class="alert alert-danger " role="alert">
+          Patient Name is required
+        </div>
+        <div *ngIf="patientForm.get('imgUrl').invalid && processValidation" [ngClass]="'error'" class="alert alert-danger " role="alert">
+          Patient Image URL is required
+        </div>
+      </div>
+
+      <div *ngIf="statusCode; else processing" class="mx-sm-3">
+        <div *ngIf="statusCode === 201" [ngClass]="'alert alert-success'">
+          Patient added successfully.
+        </div>
+        <div *ngIf="statusCode === 409" [ngClass]="'alert alert-success'">
+          Patient already exists.
+        </div>
+        <div *ngIf="statusCode === 200" [ngClass]="'alert alert-success'">
+          Patient updated successfully.
+        </div>
+        <div *ngIf="statusCode === 204" [ngClass]="'alert alert-success'">
+          Patient deleted successfully.
+        </div>
+        <div *ngIf="statusCode === 500" [ngClass]="'alert alert-danger'">
+          Internal Server Error.
+        </div>
+      </div>
+
+      <ng-template #processing>
+        <img *ngIf="requestProcessing" src="assets/images/loading.gif">
+      </ng-template>
       <input class="form-control mr-sm-2 margin-bottom-10" type="text" placeholder="Search" aria-label="Search">
 
       <table class="table table-bordered">
@@ -28,42 +60,22 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Patients Name</th>
-            <th scope="col">Patients Image</th>
-            <th scope="col">Featured</th>
+            <th scope="col">Patients Picture</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>true</td>
+          <tr *ngFor="let patient of allPatients">
+            <th scope="row">{{patient.id}}</th>
+            <td>{{patient.name}}</td>
             <td>
-              <button type="button" class="btn btn-secondary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
+              <img src={{patient.imgUrl}} class="img img-thumbnail tb-img" /> </td>
+            <td>
+              <button type="button" class="btn btn-secondary" (click)="loadPatientToEdit(patient.id)">Edit</button>
+              <button type="button" class="btn btn-danger" (click)="deletePatient(patient.id)">Delete</button>
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>false</td>
-            <td>
-              <button type="button" class="btn btn-secondary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>true</td>
-            <td>
-              <button type="button" class="btn btn-secondary">Edit</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
+
 
         </tbody>
 

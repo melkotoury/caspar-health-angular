@@ -1,3 +1,4 @@
+import { PatientsService } from './services/patients.service';
 import { AdminComponent } from './admin/admin/admin.component';
 import { LoginRoutingModule } from './shared/login/login-routing.module';
 import { TherapistsService } from './services/therapists.service';
@@ -54,7 +55,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     AdminModule, LoginRoutingModule
   ],
 providers : [
-  AuthGuardsService, ClinicsService , TherapistsService
+  AuthGuardsService, ClinicsService , TherapistsService , PatientsService
 ],
   bootstrap: [AppComponent]
 })

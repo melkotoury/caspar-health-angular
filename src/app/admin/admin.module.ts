@@ -1,3 +1,4 @@
+import { PatientsService } from './../services/patients.service';
 import { TherapistsService } from './../services/therapists.service';
 import { ClinicsService } from './../services/clinics.service';
 import { AdminTherapistsComponent } from './admin-therapists/admin-therapists.component';
@@ -32,7 +33,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
   ],
   providers: [
     ClinicsService,
-    TherapistsService
+    TherapistsService,
+    PatientsService
   ],
   bootstrap: [AdminComponent]
 })
