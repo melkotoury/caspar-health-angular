@@ -1,0 +1,7 @@
+.step{
+    margin-bottom: 10px;
+}
+
+.step > p::before{
+    content: '- ';
+}
